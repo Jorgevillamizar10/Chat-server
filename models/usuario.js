@@ -10,7 +10,7 @@ const UsuarioSchema = Schema({
 	email: {
 		type: String,
 		required: true,
-		uniquie: true, //para que sea UNICO
+		unique: true, //para que sea UNICO
 	},
 	password: {
 		type: String,
