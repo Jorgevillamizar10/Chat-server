@@ -10,6 +10,7 @@ const { validarCampos } = require("../middlewares/validar-campos");
 
 //Controladores
 const { crearUsuario, login, renewToken } = require("../controllers/auth");
+const { validarJWT } = require("../middlewares/validar-jwt");
 
 //peticion post -> Crear nuevos usuarios
 router.post(
@@ -40,6 +41,6 @@ router.post(
 // se pone [ ] para definir varios, si es solo uno se coloca sin las [ ]
 
 //Revalidar Token
-router.get("/renew", renewToken);
+router.get("/renew", validarJWT, renewToken);
 
 module.exports = router;

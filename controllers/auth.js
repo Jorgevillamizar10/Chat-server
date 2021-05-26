@@ -90,9 +90,18 @@ const login = async (req, res = response) => {
 };
 
 const renewToken = async (req, res = response) => {
+	const uid = req.uid;
+
+	//generar un nuevo jwt
+	const token = await generarJWT(uid);
+
+	// obtener el usuario por uid
+	const usuario = await Usuario.findById(uid);
+
 	res.json({
 		ok: true, // no es obligatorio ponerlo pero es bueno, si se hizo todo correctamente es true, tambien sirve para mandar mensajes de error
-		msg: "renew",
+		usuario,
+		token,
 	});
 };
 
