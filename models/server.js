@@ -38,6 +38,7 @@ class Server {
 		// API: ENDPOINTS
 		this.app.use("/api/login", require("../router/auth"));
 		// cuando alguien acceda a /api/login -> va a importar lo que exporta el path ../router/auth
+		this.app.use("/api/mensajes", require("../router/mensajes"));
 	}
 
 	// Esta configuración se puede tener aquí o como propieda de clase
